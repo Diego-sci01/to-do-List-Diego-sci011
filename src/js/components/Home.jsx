@@ -1,28 +1,54 @@
-import React from "react";
+import { useState } from "react"
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+function Lista() {
+	const [Nombre, setNombre] = useState("");
+	const [Lista, setLista] = useState([]);
 
-//create your first component
-const Home = () => {
+	function Agregar() {
+		if (Nombre !== "") {
+			setLista([...Lista, Nombre]);
+			setNombre("")
+		}
+	}
+
+	function Eliminar(IndexNombre) {
+		const NuevaLista = Lista.filter((_, index) => index !== IndexNombre);
+		setLista(NuevaLista);
+	}
 	return (
-		<div className="text-center">
-            
+		<div>
+			<h1>⋆˚࿔ Lista 𝜗𝜚˚⋆🧸ྀ</h1>
+			<div className="input">
+				<input
+					type="text"
+					value={Nombre}
+					placeholder="Escribe..."
+					onChange={(e) => setNombre(e.target.value)}
+					onKeyDown={(e) => {
+						if (e.key === "Enter") {
+							Agregar();
+						}
+					}}
+				></input>
+			</div>
 
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
+			<ul>
+				{Lista.length === 0 ? (
+					<li>No hay tareas, añadir tareas</li>
+				) : (
+					Lista.map((Nombre, index) => (
+						<li key={index}>
+							<span>◦ {Nombre}</span>
+							<p className="Borrar" onClick={() => Eliminar(index)}>
+								Borrar
+							</p>
+						</li>
+					))
+				)}
+			</ul>
+			<p>Tienes <strong>{Lista.length}</strong>{Lista.length === 1 ? " pendiente" : " pendientes"}</p>
 		</div>
-	);
-};
+	)
+}
 
-export default Home;
+export default Lista 

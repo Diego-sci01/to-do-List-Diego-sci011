@@ -1,11 +1,79 @@
-/* 
+body {
+    background: #ffdcdc42;
+    font-family: "Helvetica Neue";
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    color: #4d4d4d;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+div {
+    width: 400px;
+    margin-top: 60px;
+}
 
-*/
+h1 {
+    font-size: 50px;
+    font-weight: 100;
+    text-align: center;
+    color: rgba(175, 47, 47, 0.258);
+    margin-top: 20px;
+}
+
+.input input {
+    width: 100%;
+    padding: 16px 16px 16px 60px;
+    border: none;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 24px;
+    box-shadow: inset 0 -2px 1px rgba(0, 0, 0, 0.03);
+    box-sizing: border-box;
+    outline: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2),
+        0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #ededed;
+    font-size: 24px;
+    position: relative;
+}
+
+.Borrar {
+    display: none;
+}
+
+li:hover .Borrar {
+    display: block;
+}
+
+.Borrar p {
+    color: #cc9a9a;
+    cursor: pointer;
+    margin: 0;
+    transition: color 0.3s ease;
+    font-size: 20px;
+}
+
+.Borrar p:hover {
+    color: #af5b5e;
+}
+
+p {
+    color: #bfbfbf;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: left;
+    padding-left: 10px;
+}
